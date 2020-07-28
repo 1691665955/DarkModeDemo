@@ -21,7 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"首页";
-    [self changeUIForTraitCollection];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showDetail)];
     [self.view addGestureRecognizer:tap];
 }
@@ -31,15 +30,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
-    if (@available(iOS 13.0, *)) {
-        if (previousTraitCollection.userInterfaceStyle != [UITraitCollection currentTraitCollection].userInterfaceStyle) {
-            [self changeUIForTraitCollection];
-        }
-    }
-}
-
-- (void)changeUIForTraitCollection {
+- (void)refreshUIForTraitCollection {
     if (@available(iOS 13.0, *)) {
         if (self.traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark) {
             self.textLB.textColor = [UIColor colorWithHexString:@"ffffff"];

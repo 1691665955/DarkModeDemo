@@ -19,4 +19,8 @@
     self.title = @"个人中心";
 }
 
+- (void)refreshUIForTraitCollection {
+    
+}
+
 @end
